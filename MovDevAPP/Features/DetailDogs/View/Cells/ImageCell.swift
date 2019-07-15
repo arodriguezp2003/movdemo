@@ -9,28 +9,23 @@
 import UIKit
 
 class ImageCell: UICollectionViewCell {
+    var indexPath: IndexPath?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.imageView.af_cancelImageRequest()
-        self.imageView.image = nil
+         setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     var imageView: UIImageView = {
         let image =  UIImageView()
         image.contentMode = UIView.ContentMode.scaleAspectFit
+        image.clipsToBounds = true
         return image
     }()
-    
-    func setup(obj: DogImageEntity) {
-        setupImage(obj.image)
-        setupViews()
-    }
-    
-    func setupImage(_ url: String ) {
-        DispatchQueue.main.async {
-            self.imageView.cacheImage(urlString: url)
-        }
-    }
     
     func setupViews() {
         addSubview(self.imageView)
@@ -40,10 +35,7 @@ class ImageCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.imageView.af_cancelImageRequest()
-        self.imageView.image = nil
+        self.imageView.image = UIImage()
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
 }

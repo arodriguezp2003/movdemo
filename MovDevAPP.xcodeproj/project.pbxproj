@@ -163,6 +163,13 @@
 			path = Testing;
 			sourceTree = "<group>";
 		};
+		351FA10922DD064C005EA57F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		35B8709522D9387200771A81 = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +271,7 @@
 		35B870D822D9425D00771A81 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				351FA10922DD064C005EA57F /* New Group */,
 				35B870F722D97D3D00771A81 /* Alert */,
 				35B870DB22D9564600771A81 /* Extensions.swift */,
 				351FA0FE22DCD452005EA57F /* Config.swift */,
@@ -389,6 +397,7 @@
 				35B870AE22D9387300771A81 /* Sources */,
 				35B870AF22D9387300771A81 /* Frameworks */,
 				35B870B022D9387300771A81 /* Resources */,
+				7E58C99BCCE6DCF2522B9A54 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -468,20 +477,38 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MovDevAPP/Pods-MovDevAPP-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovDevAPP/Pods-MovDevAPP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E58C99BCCE6DCF2522B9A54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovDevAPPTests/Pods-MovDevAPPTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovDevAPPTests/Pods-MovDevAPPTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8199028C8DA8732BB2B97420 /* [CP] Check Pods Manifest.lock */ = {

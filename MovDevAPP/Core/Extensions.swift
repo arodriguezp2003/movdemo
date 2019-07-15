@@ -7,7 +7,6 @@
 //
 import UIKit
 import Alamofire
-import AlamofireImage
 extension UIView {
     func addContraintsWithFormat(format: String, views: UIView...) {
         var viewDictionaty = [String: UIView]()
@@ -27,26 +26,28 @@ fileprivate let imageCache = NSCache<AnyObject,AnyObject>()
 fileprivate let _size = CGSize(width: 150, height: 150)
 extension UIImageView {
     
-    func cacheImage(urlString: String){
-        let url = URL(string: urlString)
-        
-        image = nil
-        
-        if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
-            self.image = imageFromCache
-            return
-        }
-        
-        Alamofire.request(url!).responseImage { (response) in
-            if let _image = response.result.value {
+    func loadURL(at url:String) {
+        if let url = URL(string: url) {
+            image = nil
+            
+            if let imageFromCache = imageCache.object(forKey: url as AnyObject) as? UIImage {
                 DispatchQueue.main.async {
-                    imageCache.setObject(_image, forKey: urlString as AnyObject)
-                    self.image = _image
+                     self.image = imageFromCache
+                }
+               
+                return
+            }
+            
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            imageCache.setObject(image, forKey: url as AnyObject)
+                            self?.image = image
+                        }
+                    }
                 }
             }
-
-        }.resume()
+        }
     }
-    
-
 }

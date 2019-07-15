@@ -19,7 +19,7 @@ class ShowImageViewController: UIViewController {
         print("url:\(url)")
         
         let image = UIImageView()
-        image.cacheImage(urlString: url)
+        image.loadURL(at: url)
         image.contentMode = UIView.ContentMode.scaleAspectFit
         self.view.addSubview(image)
         

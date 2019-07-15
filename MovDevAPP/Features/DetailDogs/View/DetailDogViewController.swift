@@ -27,7 +27,7 @@ class DetailDogViewController: UICollectionViewController,UICollectionViewDelega
 	// MARK: Object lifecycle
 	override public func viewDidLoad() {
 		super.viewDidLoad()
-        collectionView?.contentInsetAdjustmentBehavior = .never
+//        collectionView?.contentInsetAdjustmentBehavior = .never
         self.presenter?.getImageList()
         self.setup()
 	}
@@ -64,10 +64,13 @@ extension DetailDogViewController {
         return self.images.count
     }
     override  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL, for: indexPath) as? ImageCell
-        cell!.setup(obj: self.images[indexPath.item])
-        return cell!
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL, for: indexPath) as! ImageCell
+        let url = self.images[indexPath.item].image
+        cell.imageView.loadURL(at: url)
+       
+        return cell
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)

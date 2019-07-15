@@ -1,7 +1,5 @@
 PODS:
   - Alamofire (4.8.2)
-  - AlamofireImage (3.5.2):
-    - Alamofire (~> 4.8)
   - OHHTTPStubs/Core (8.0.0)
   - OHHTTPStubs/Default (8.0.0):
     - OHHTTPStubs/Core
@@ -18,20 +16,17 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
-  - AlamofireImage (~> 3.5)
-  - OHHTTPStubs/Swift
+  - OHHTTPStubs/Swift (~> 8.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - AlamofireImage
     - OHHTTPStubs
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
 
-PODFILE CHECKSUM: 00c5c311e825e24c1e4a68437fe33007b12abab9
+PODFILE CHECKSUM: f1f16b295bedf5c119b42298ea4a6737d789dc86
 
 COCOAPODS: 1.6.0
